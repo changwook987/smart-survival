@@ -1,0 +1,17 @@
+name: Plugin
+version: ${project.version}
+main: com.plugin.plugin.Plugin
+api-version: 1.17
+commands:
+  rlqhsxpa:
+    description: item
+    usage: /rlqhsxpa
+  기본템:
+    description: item
+    usage: /기본템
+  qkq:
+    description: 밥
+    usage: /qkq
+  밥:
+    description: 밥
+    usage: /밥
