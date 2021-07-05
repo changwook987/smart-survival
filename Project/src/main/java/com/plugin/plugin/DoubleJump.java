@@ -26,12 +26,12 @@ public class DoubleJump implements Listener{
     }
     @EventHandler
     public  void onMove(PlayerMoveEvent event){
-        if(event.getPlayer().getGameMode() != GameMode.CREATIVE &&
-                event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.AIR &&
-                event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.WATER &&
-                event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.LAVA){
-            event.getPlayer().setAllowFlight(true);
+        Location l = event.getPlayer().getLocation();
+        l.add(0,-1,0);
+        if((event.getPlayer().getGameMode() == GameMode.SURVIVAL || event.getPlayer().getGameMode() == GameMode.ADVENTURE)&& //플레이어가 서바이벌, 모험모드일때만 적용
+                l.getBlock().getType().isSolid()){ //밟고 있는 블럭이 고체블럭인지 감지
+            event.getPlayer().setAllowFlight(true); //더블점프 감지를위해 날기 허용
+            if(event.getPlayer().isFlying()) event.getPlayer().setFlying(false);//서버의 랙으로 날기가 취소되지 않았을 경우 움직일때 날기를 꺼줌
         }
-        if(event.getPlayer().isFlying()) event.getPlayer().setFlying(false);
     }
 }
