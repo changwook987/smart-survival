@@ -10,7 +10,8 @@ import org.bukkit.util.Vector;
 public class DoubleJump implements Listener{
     @EventHandler
     public void Jump (PlayerToggleFlightEvent event){
-        if(event.getPlayer().getGameMode() != GameMode.CREATIVE){
+        if(event.getPlayer().getGameMode() == GameMode.SURVIVAL ||
+          event.getPlayer().getGameMode() == GameMode.ADVENTURE){
             event.setCancelled(true);
             event.getPlayer().getWorld().playSound(event.getPlayer().getLocation(),Sound.ENTITY_BAT_TAKEOFF,10000,1);
             event.getPlayer().getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE,event.getPlayer().getLocation(),10);
