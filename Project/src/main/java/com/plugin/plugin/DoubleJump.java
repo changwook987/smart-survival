@@ -1,9 +1,6 @@
 package com.plugin.plugin;
 
-import com.sun.tools.javac.tree.DCTree;
 import org.bukkit.*;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
